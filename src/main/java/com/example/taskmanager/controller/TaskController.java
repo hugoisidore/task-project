@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:5173") // Port de React
 @RestController
 @RequestMapping("/tasks")
 public class TaskController {
