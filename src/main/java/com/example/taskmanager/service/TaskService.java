@@ -26,6 +26,7 @@ public class TaskService {
         return taskRepository.findById(id)
             .map(task -> {
                 task.setTitle(updatedTask.getTitle());
+                task.setText(updatedTask.getText());
                 task.setDescription(updatedTask.getDescription());
                 task.setCompleted(updatedTask.isCompleted());
                 return taskRepository.save(task);
