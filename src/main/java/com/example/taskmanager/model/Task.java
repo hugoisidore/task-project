@@ -12,9 +12,18 @@ public class Task {
     private Long id;
     private String title;
     private String description;
+    private String text;
     private boolean completed;
 
     // Getters et setters
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
     public Long getId() {
         return id;
     }

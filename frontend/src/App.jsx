@@ -25,6 +25,7 @@ function App() {
       })
         .then((response) => response.json())
         .then((addedTask) => {
+          console.log('Tâche ajoutée:', addedTask);
           setTasks([...tasks, addedTask]);
           setNewTask('');
         })
@@ -63,7 +64,7 @@ function App() {
         <ul>
           {tasks.map((task) => (
             <li key={task.id}>
-              {task.text}{' '}
+              {task.text}{/* Affiche ici le texte de la tâche */}
               <button onClick={() => deleteTask(task.id)}>Supprimer</button>
             </li>
           ))}
