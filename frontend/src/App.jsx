@@ -53,7 +53,7 @@ function App() {
     setEditTaskText(task.text); // Remplit l'input avec le texte existant
   };
 
-// Fonction pour mettre à jour une tâche
+  // Fonction pour mettre à jour une tâche
   const updateTask = (taskId) => {
     if (editTaskText.trim() !== '') {
       fetch(`http://localhost:8080/tasks/${taskId}`, {
@@ -77,11 +77,9 @@ function App() {
     }
   };
 
-
   return (
     <div className="App">
       <h1>Gestion des Tâches</h1>
-
       {/* Formulaire pour ajouter une tâche */}
       <div>
         <input
@@ -96,14 +94,14 @@ function App() {
       {/* Liste des tâches */}
       <div>
         <ul>
-    {tasks.map((task) => (
-      <li key={task.id}>
-        {editTaskId === task.id ? ( // Si cette tâche est en mode édition
+          {tasks.map((task) => (
+          <li key={task.id}>
+          {editTaskId === task.id ? ( // Si cette tâche est en mode édition
           <>
             <input
               type="text"
               value={editTaskText}
-              onChange={(e) => setEditTaskText(e.target.value)} // Gère la saisie
+              onChange={(e) => setEditTaskText(e.target.value)} // on gère la saisie
             />
             <button onClick={() => updateTask(task.id)}>Enregistrer</button>
             <button onClick={() => setEditTaskId(null)}>Annuler</button>
@@ -115,10 +113,9 @@ function App() {
             <button onClick={() => deleteTask(task.id)}>Supprimer</button>
           </>
         )}
-      </li>
-    ))}
-  </ul>
-
+          </li>
+        ))}
+        </ul>
       </div>
     </div>
   );
