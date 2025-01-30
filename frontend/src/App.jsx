@@ -5,15 +5,23 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
   const [editTaskId, setEditTaskId] = useState(null); 
-  const [editTaskText, setEditTaskText] = useState(''); 
-
-
+  const [editTaskText, setEditTaskText] = useState('');
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
+ 
   // Fonction pour récupérer les tâches depuis l'API
   useEffect(() => {
+    // pour les tâches
     fetch('http://localhost:8080/tasks')
       .then((response) => response.json())
       .then((data) => setTasks(data))
       .catch((error) => console.error('Error fetching tasks:', error));
+
+    // pour les catégories
+    fetch('http://localhost:8080/categories')
+      .then((response) => response.json())
+      .then((data) => setCategories(data))
+      .catch((error) => console.error('Error fetching categories:', error));
   }, []);
 
   // Fonction pour ajouter une tâche
@@ -24,13 +32,18 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ text: newTask, completed: false }),
+        body: JSON.stringify({ 
+          text: newTask, 
+          completed: false,
+          category: selectedCategory ? { id: selectedCategory } : null
+        }),
       })
         .then((response) => response.json())
         .then((addedTask) => {
           console.log('Tâche ajoutée:', addedTask);
           setTasks([...tasks, addedTask]);
           setNewTask('');
+          setSelectedCategory('');
         })
         .catch((error) => console.error('Error adding task:', error));
     }
@@ -88,6 +101,13 @@ function App() {
           onChange={(e) => setNewTask(e.target.value)}
           placeholder="Ajouter une nouvelle tâche"
         />
+        {/* Sélecteur de catégorie */}
+        <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+          <option value="">Sélectionner une catégorie</option>
+          {categories.map((category) => (
+            <option key={category.id} value={category.id}>{category.name}</option>
+        ))}
+        </select>
         <button onClick={addTask}>Ajouter</button>
       </div>
 
