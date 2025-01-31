@@ -128,6 +128,11 @@ function App() {
           </>
         ) : ( // Si cette tâche n'est pas en mode édition
           <>
+            {task.category && task.category.name && (
+              <span style={{ fontWeight: "bold", marginLeft: "10px" }}>
+                Catégorie : {task.category.name} / &nbsp;
+              </span> // Affichage de la catégorie
+            )}
             {task.text}{/* Affiche ici le texte de la tâche */}
             <button onClick={() => enableEdit(task)}>Modifier</button>
             <button onClick={() => deleteTask(task.id)}>Supprimer</button>
