@@ -129,7 +129,13 @@ function App() {
         ) : ( // Si cette tâche n'est pas en mode édition
           <>
             {task.category && task.category.name && (
-              <span style={{ fontWeight: "bold", marginLeft: "10px" }}>
+              <span style={{ fontWeight: "bold", marginLeft: "10px",
+                color: 
+                  task.category.name === "Long terme" ? "orange" :
+                  task.category.name === "Travail" ? "blue" :
+                  task.category.name === "Urgent" ? "red" :
+                  "black"
+              }}>
                 Catégorie : {task.category.name} / &nbsp;
               </span> // Affichage de la catégorie
             )}
