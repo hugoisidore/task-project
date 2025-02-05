@@ -74,7 +74,10 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ text: editTaskText }),
+        body: JSON.stringify({ 
+          text: editTaskText,
+          completed: tasks.find(task => task.id === taskId).completed,
+        }),
       })
         .then((response) => response.json())
         .then((updatedTask) => {
@@ -88,6 +91,20 @@ function App() {
         })
         .catch((error) => console.error('Error updating task:', error));
     }
+  };
+
+  const toggleTaskCompletion = (taskId) => {
+    fetch(`http://localhost:8080/tasks/${taskId}/complete`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((response) => response.json())
+      .then((updatedTask) => {
+        setTasks(tasks.map((task) => 
+          task.id === taskId ? updatedTask : task // Met à jour la tâche
+        ));
+      })
+      .catch((error) => console.error('Error toggling task completion:', error));
   };
 
   return (
@@ -126,8 +143,14 @@ function App() {
             <button onClick={() => updateTask(task.id)}>Enregistrer</button>
             <button onClick={() => setEditTaskId(null)}>Annuler</button>
           </>
-        ) : ( // Si cette tâche n'est pas en mode édition
+        ) : ( 
           <>
+          {/* ✅ Case à cocher pour marquer la tâche comme complétée */}
+          <input
+            type="checkbox"
+            checked={task.completed}
+            onChange={() => toggleTaskCompletion(task.id, task.completed)}
+          />
             {task.category && task.category.name && (
               <span style={{ fontWeight: "bold", marginLeft: "10px",
                 color: 
