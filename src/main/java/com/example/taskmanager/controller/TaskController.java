@@ -44,4 +44,11 @@ public class TaskController {
     public void deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
     }
+
+    @PutMapping("/{id}/complete")
+    public Task toggleTaskCompletion(@PathVariable Long id) {
+        Task task = taskService.getTaskById(id);
+        task.setCompleted(!task.isCompleted()); // Inverse l'état actuel
+        return taskService.updateTask(id, task);
+    }
 }
