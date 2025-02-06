@@ -162,7 +162,14 @@ function App() {
                 Catégorie : {task.category.name} / &nbsp;
               </span> // Affichage de la catégorie
             )}
-            {task.text}{/* Affiche ici le texte de la tâche */}
+            <span
+              style={{
+                textDecoration: task.completed ? "line-through" : "none", // Applique un texte barré si la tâche est complétée
+                color: task.completed ? "gray" : "black" // Change la couleur du texte si la tâche est complétée (optionnel)
+              }}
+            >
+              {task.text} {/* Affiche ici le texte de la tâche */}
+            </span>
             <button onClick={() => enableEdit(task)}>Modifier</button>
             <button onClick={() => deleteTask(task.id)}>Supprimer</button>
           </>
