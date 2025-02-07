@@ -137,8 +137,8 @@ function App() {
       <div>
         <ul>
           {tasks.map((task) => (
-          <li key={task.id}>
-          {editTaskId === task.id ? ( // Si cette tâche est en mode édition
+            <li key={task.id} className="task-item">
+            {editTaskId === task.id ? ( // Si cette tâche est en mode édition
           <>
             <input
               type="text"
@@ -151,6 +151,7 @@ function App() {
         ) : ( 
           <>
           {/* ✅ Case à cocher pour marquer la tâche comme complétée */}
+          <div className="task-content">
           <input
             type="checkbox"
             checked={task.completed}
@@ -167,7 +168,7 @@ function App() {
                 Catégorie : {task.category.name} / &nbsp;
               </span> // Affichage de la catégorie
             )}
-            <span
+            <span className="task-text"
               style={{
                 textDecoration: task.completed ? "line-through" : "none", // texte barré si la tâche est complétée
                 color: task.completed ? "gray" : "black", // on change la couleur du texte si la tâche est complétée
@@ -176,10 +177,14 @@ function App() {
             >
               {task.text} {/* Affiche ici le texte de la tâche */}
             </span>
+            </div>
+
+            <div className="task-buttons">
             <button onClick={() => enableEdit(task)}
-              style={{ marginRight: "40px" }}
+              style={{ marginRight: "30px" }}
               >Modifier</button>
             <button onClick={() => deleteTask(task.id)}>Supprimer</button>
+            </div>
           </>
         )}
           </li>
