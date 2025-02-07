@@ -116,10 +116,15 @@ function App() {
           type="text"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
-          placeholder="Ajouter une nouvelle tâche"
+          placeholder="Ajouter tâche"
+          style={{ marginRight: "40px" }}
         />
         {/* Sélecteur de catégorie */}
-        <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+        <select 
+          value={selectedCategory} 
+          onChange={(e) => setSelectedCategory(e.target.value)}
+          style={{ marginRight: "50px" }}
+        >
           <option value="">Sélectionner une catégorie</option>
           {categories.map((category) => (
             <option key={category.id} value={category.id}>{category.name}</option>
@@ -165,12 +170,15 @@ function App() {
             <span
               style={{
                 textDecoration: task.completed ? "line-through" : "none", // texte barré si la tâche est complétée
-                color: task.completed ? "gray" : "black" // on change la couleur du texte si la tâche est complétée
+                color: task.completed ? "gray" : "black", // on change la couleur du texte si la tâche est complétée
+                marginRight: "40px"
               }}
             >
               {task.text} {/* Affiche ici le texte de la tâche */}
             </span>
-            <button onClick={() => enableEdit(task)}>Modifier</button>
+            <button onClick={() => enableEdit(task)}
+              style={{ marginRight: "40px" }}
+              >Modifier</button>
             <button onClick={() => deleteTask(task.id)}>Supprimer</button>
           </>
         )}
