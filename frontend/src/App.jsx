@@ -164,8 +164,8 @@ function App() {
             )}
             <span
               style={{
-                textDecoration: task.completed ? "line-through" : "none", // Applique un texte barré si la tâche est complétée
-                color: task.completed ? "gray" : "black" // Change la couleur du texte si la tâche est complétée (optionnel)
+                textDecoration: task.completed ? "line-through" : "none", // texte barré si la tâche est complétée
+                color: task.completed ? "gray" : "black" // on change la couleur du texte si la tâche est complétée
               }}
             >
               {task.text} {/* Affiche ici le texte de la tâche */}
