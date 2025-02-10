@@ -116,7 +116,7 @@ function App() {
           type="text"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
-          placeholder="Ajouter tâche"
+          placeholder="Ajouter une tâche"
           style={{ marginRight: "40px" }}
         />
         {/* Sélecteur de catégorie */}
