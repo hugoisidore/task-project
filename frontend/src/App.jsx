@@ -159,7 +159,7 @@ function App() {
             onChange={() => toggleTaskCompletion(task.id, task.completed)}
           />
             {task.category && task.category.name && (
-              <span style={{ fontWeight: "bold", marginLeft: "10px",
+              <span style={{ fontWeight: "bold", marginLeft: "20px",
                 color: 
                   task.category.name === "Long terme" ? "orange" :
                   task.category.name === "Travail" ? "blue" :
@@ -173,7 +173,6 @@ function App() {
               style={{
                 textDecoration: task.completed ? "line-through" : "none", // texte barré si la tâche est complétée
                 color: task.completed ? "gray" : "white", // on change la couleur du texte si la tâche est complétée
-                marginRight: "40px"
               }}
             >
               {task.text} {/* Affiche ici le texte de la tâche */}
