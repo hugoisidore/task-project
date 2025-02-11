@@ -35,7 +35,8 @@ function App() {
         body: JSON.stringify({ 
           text: newTask, 
           completed: false,
-          category: selectedCategory ? { id: selectedCategory } : null
+          category: selectedCategory ? { id: selectedCategory } : null,
+          createdAt: new Date().toISOString()
         }),
       })
         .then((response) => response.json())
@@ -171,11 +172,14 @@ function App() {
             <span className="task-text"
               style={{
                 textDecoration: task.completed ? "line-through" : "none", // texte barré si la tâche est complétée
-                color: task.completed ? "gray" : "black", // on change la couleur du texte si la tâche est complétée
+                color: task.completed ? "gray" : "white", // on change la couleur du texte si la tâche est complétée
                 marginRight: "40px"
               }}
             >
               {task.text} {/* Affiche ici le texte de la tâche */}
+            </span>
+            <span className="task-date">
+              {task.createdAt ? `(${new Date(task.createdAt).toLocaleDateString()})`: "(Date inconnue)"}
             </span>
             </div>
 
