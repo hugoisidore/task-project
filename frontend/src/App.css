@@ -22,8 +22,8 @@ body {
 }
 
 .task-item {
-  display: grid;
-  grid-template-columns: 1fr auto; /* Colonne 1 = texte, Colonne 2 = boutons */
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 40%;
   max-width: 100%;
@@ -32,9 +32,13 @@ body {
 }
 
 .task-content {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  flex-grow: 1;
   border: 1px solid gray;
 }
 
@@ -43,5 +47,11 @@ body {
   gap: 10px;
   justify-content: flex-end; 
   min-width: 150px; 
+}
+
+.task-date {
+  color: lightgray;
+  margin-left: auto; /* Pousse la date complètement à droite */
+  white-space: nowrap; /* Empêche le retour à la ligne */
 }
 
