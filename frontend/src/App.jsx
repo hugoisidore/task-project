@@ -35,7 +35,8 @@ function App() {
         body: JSON.stringify({ 
           text: newTask, 
           completed: false,
-          category: selectedCategory ? { id: selectedCategory } : null
+          category: selectedCategory ? { id: selectedCategory } : null,
+          createdAt: new Date().toISOString()
         }),
       })
         .then((response) => response.json())
@@ -176,6 +177,9 @@ function App() {
               }}
             >
               {task.text} {/* Affiche ici le texte de la tâche */}
+            </span>
+            <span className="task-date">
+              {task.createdAt ? `(${new Date(task.createdAt).toLocaleDateString()})`: "(Date inconnue)"}
             </span>
             </div>
 
