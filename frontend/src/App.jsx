@@ -172,7 +172,7 @@ function App() {
             <span className="task-text"
               style={{
                 textDecoration: task.completed ? "line-through" : "none", // texte barré si la tâche est complétée
-                color: task.completed ? "gray" : "black", // on change la couleur du texte si la tâche est complétée
+                color: task.completed ? "gray" : "white", // on change la couleur du texte si la tâche est complétée
                 marginRight: "40px"
               }}
             >
