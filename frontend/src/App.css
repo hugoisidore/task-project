@@ -12,6 +12,7 @@ body {
   color: white;
   font-family: Arial, sans-serif;
   transition: background-color 2s ease, color 2s ease;
+  font-size: 25px;
 }
 
 .App {
@@ -22,14 +23,22 @@ body {
   max-width: 100%;
 }
 
+input[type="text"], select {
+  width: 300px; 
+  padding: 10px; 
+  font-size: 20px; 
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
 .task-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 40%;
+  width: 80%;
   max-width: 100%;
-  margin-bottom: 10px;
-  gap: 10px;
+  margin-bottom: 30px;
+  gap: 40px;
 }
 
 .task-content {
