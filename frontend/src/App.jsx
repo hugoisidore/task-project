@@ -151,7 +151,7 @@ function App() {
           </>
         ) : ( 
           <>
-          {/* ✅ Case à cocher pour marquer la tâche comme complétée */}
+          {/* Case à cocher pour marquer la tâche comme complétée */}
           <div className="task-content">
           <input
             type="checkbox"
