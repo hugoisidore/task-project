@@ -2,15 +2,13 @@
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  padding: 20px;
-  text-align: left;
-  overflow-x: hidden;
+  padding: 50px;
 }
 
 body {
   background-color: black;
   color: white;
-  font-family: Arial, sans-serif;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   transition: background-color 2s ease, color 2s ease;
   font-size: 25px;
 }
@@ -65,3 +63,58 @@ input[type="text"], select {
   white-space: nowrap; /* Empêche le retour à la ligne */
 }
 
+/* 📱 Adaptation pour les écrans <= 768px (tablette & mobile) */
+@media (max-width: 768px) {
+  .App {
+    height: auto; 
+    padding: 10px;
+  }
+
+  .task-item {
+    flex-direction: column; /* Empile les éléments */
+    align-items: flex-start;
+    width: 100%; 
+    gap: 20px; 
+  }
+
+  .task-content {
+    width: 100%; 
+    text-align: left;
+    white-space: normal;  /* Permet le retour à la ligne */
+    word-wrap: break-word; /* Coupe proprement si nécessaire */
+    overflow-wrap: break-word; 
+  }
+
+  .task-buttons {
+    width: 100%;
+    justify-content: space-between; 
+  }
+
+  input[type="text"], select {
+    width: 100%;
+  }
+}
+
+/* 📱 Pour les très petits écrans <= 480px (smartphones) */
+@media (max-width: 480px) {
+  body {
+    font-size: 20px; 
+  }
+
+  .task-buttons {
+    flex-direction: column; 
+    align-items: stretch;
+    gap: 5px;
+  }
+
+  .task-content {
+    white-space: normal;  
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+  }
+
+  input[type="text"], select {
+    font-size: 18px;
+    padding: 8px;
+  }
+}
