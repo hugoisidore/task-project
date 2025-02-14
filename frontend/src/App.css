@@ -78,16 +78,20 @@ input[type="text"], select {
   }
 
   .task-content {
-    width: 100%; 
-    text-align: left;
-    white-space: normal;  /* Permet le retour à la ligne */
-    word-wrap: break-word; /* Coupe proprement si nécessaire */
-    overflow-wrap: break-word; 
+    flex-direction: column; /* Met le texte et la date en colonne */
+    align-items: flex-start; /* Alignement à gauche */
   }
 
   .task-buttons {
     width: 100%;
     justify-content: space-between; 
+  }
+
+  .task-date {
+    margin-left: 0; /* Enlève l'alignement à droite */
+    margin-top: 5px; 
+    font-size: 18px; 
+    color: lightgray; 
   }
 
   input[type="text"], select {
@@ -108,9 +112,18 @@ input[type="text"], select {
   }
 
   .task-content {
+    flex-direction: column; /* Met le texte et la date en colonne */
+    align-items: flex-start; 
     white-space: normal;  
     word-wrap: break-word; 
     overflow-wrap: break-word; 
+  }
+
+  .task-date {
+    margin-left: 0; /* Supprime l'alignement à droite */
+    margin-top: 5px; 
+    font-size: 16px; 
+    color: lightgray;
   }
 
   input[type="text"], select {
