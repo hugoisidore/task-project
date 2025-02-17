@@ -29,6 +29,25 @@ input[type="text"], select {
   border: 1px solid gray;
 }
 
+button {
+  background-color: #2b85e4; 
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #00458f;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
 .task-item {
   display: flex;
   justify-content: space-between;
