@@ -119,7 +119,7 @@ function App() {
     <div className="App">
       <h1>Gestion des Tâches</h1>
 
-      <button onClick={toggleDarkMode} style={{ marginBottom: "20px" }}>
+      <button onClick={toggleDarkMode} style={{ marginBottom: "30px" }}>
         {darkMode ? "Basculer en Light Mode ☀️" : "Basculer en Dark Mode 🌙"}
       </button>
 
