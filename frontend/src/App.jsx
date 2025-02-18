@@ -8,6 +8,7 @@ function App() {
   const [editTaskText, setEditTaskText] = useState('');
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [darkMode, setDarkMode] = useState(true);
  
   // Fonction pour récupérer les tâches depuis l'API
   useEffect(() => {
@@ -108,9 +109,20 @@ function App() {
       .catch((error) => console.error('Error toggling task completion:', error));
   };
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    document.body.classList.toggle("light-mode");
+  };
+  
+
   return (
     <div className="App">
       <h1>Gestion des Tâches</h1>
+
+      <button onClick={toggleDarkMode} style={{ marginBottom: "20px" }}>
+        {darkMode ? "Basculer en Light Mode ☀️" : "Basculer en Dark Mode 🌙"}
+      </button>
+
       {/* Formulaire pour ajouter une tâche */}
       <div>
         <input
