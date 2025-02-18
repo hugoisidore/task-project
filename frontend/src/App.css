@@ -150,3 +150,36 @@ button:active {
     padding: 8px;
   }
 }
+
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.light-mode input[type="text"], 
+.light-mode select {
+  border: 1px solid black;
+  background-color: #f0f0f0;
+  color: black;
+}
+
+.light-mode .task-content {
+  border-color: black;
+}
+
+.light-mode button {
+  background-color: #313030;
+  color: white;
+}
+
+.light-mode button:hover {
+  background-color: #222;
+}
+
+.light-mode .task-text {
+  color: black !important;
+}
+
+.light-mode .task-date {
+  color: gray;
+}
