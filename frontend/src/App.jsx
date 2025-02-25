@@ -53,14 +53,21 @@ function App() {
 
   // Fonction pour supprimer une tâche
   const deleteTask = (taskId) => {
-    fetch(`http://localhost:8080/tasks/${taskId}`, {
-      method: 'DELETE',
-    })
-      .then(() => {
-        setTasks(tasks.filter((task) => task.id !== taskId));
-      })
-      .catch((error) => console.error('Error deleting task:', error));
-  };
+    const taskElement = document.getElementById(`task-${taskId}`);
+    if (taskElement) {
+      taskElement.classList.add("removing"); // Ajoute la classe qui déclenche l'animation
+  
+      setTimeout(() => {
+        fetch(`http://localhost:8080/tasks/${taskId}`, {
+          method: "DELETE",
+        })
+          .then(() => {
+            setTasks(tasks.filter((task) => task.id !== taskId));
+          })
+          .catch((error) => console.error("Error deleting task:", error));
+      }, 300); // Permet que l'animation soit terminée avant de supprimer la tâche du state
+    }
+  };  
 
   // Fonction pour activer le mode édition
   const enableEdit = (task) => {
@@ -150,7 +157,7 @@ function App() {
       <div>
         <ul>
           {tasks.map((task) => (
-            <li key={task.id} className="task-item">
+            <li key={task.id} id={`task-${task.id}`} className="task-item">
             {editTaskId === task.id ? ( // Si cette tâche est en mode édition
           <>
             <input
